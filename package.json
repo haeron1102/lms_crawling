@@ -1,0 +1,25 @@
+{
+  "name": "lms_crawling",
+  "version": "1.0.0",
+  "description": "to webcrawling klms",
+  "main": "crawling.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haeron1102/lms_crawling.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/haeron1102/lms_crawling/issues"
+  },
+  "homepage": "https://github.com/haeron1102/lms_crawling#readme",
+  "dependencies": {
+    "axios": "^1.13.6",
+    "cheerio": "^1.2.0"
+  }
+}
