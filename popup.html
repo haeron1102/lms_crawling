@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <title>LMS Crawling</title>
+    <style>
+    body {
+        width: 320px;
+        padding: 12px;
+        font-family: Arial, sans-serif;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 12px;
+        cursor: pointer;
+    }
+
+    #result {
+        white-space: pre-wrap;
+        border: 1px solid #ccc;
+        padding: 10px;
+        min-height: 120px;
+        max-height: 300px;
+        overflow-y: auto;
+        font-size: 14px;
+    }
+    </style>
 </head>
 <body>
-    <h2>공지 가져오기</h2>
-    <button id="crawl">크롤링</button>
+    <h3>KLMS 텍스트 가져오기</h3>
+    <button id="crawlBtn">현재 페이지 읽기</button>
+    <div id="result">아직 결과 없음</div>
 
     <script src="popup.js"></script>
 </body>
