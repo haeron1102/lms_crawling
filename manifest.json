@@ -16,7 +16,7 @@
 
     "content_scripts": [
         {
-            "matches":["https://klms.kaist.ac.kr/*"],
+            "matches":["<all_urls>"],
             "js" : ["content.js"]
         }
     ]

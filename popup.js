@@ -1,16 +1,5 @@
-async function getHtml() {
-    // const original_html = await fetch("https://klms.kaist.ac.kr/");
-    // const modified_html = await original_html.text();
+document.querySelector('#crawlBtn').addEventListener("click", async () => {
+    const [tab] = await chrome.tabs.query( {active : true, currentWindow : true });
 
-    // console.log(modified_html);
-
-    const urls = document.querySelectorAll('.fullname')
-    
-    for(let i = 0; i < urls.length; i++) {
-        console.log(urls[i].href)
-    }
-}
-    
-document.querySelector('#crawlBtn').addEventListener("click", () => {
-    getHtml();
+    chrome.tabs.sendMessage(tab.id, { action : "crawl"} );
 });
