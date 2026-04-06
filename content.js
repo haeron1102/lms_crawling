@@ -7,7 +7,11 @@ async function getHtml(url) {
 
     const notice_url = dom_html.querySelector('.activity.courseboard .aalink');
     
-    return notice_url.href
+    if (!notice_url) {
+        return null
+    } else {
+        return notice_url.href         
+    }
 }
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
