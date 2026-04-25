@@ -1,4 +1,4 @@
-const OPENROUTER_API_KEY = "";
+const OPENROUTER_API_KEY = "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";
 const content = `<2026 봄학기 일반물리Ⅰ 학점인정시험>
 
  
