@@ -1,5 +1,3 @@
-const OPENROUTER_API_KEY = "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";
-
 async function getHtml(url) {
     const class_html = await fetch(url);  // class url
     const text_html = await class_html.text();
@@ -18,7 +16,7 @@ async function getHtml(url) {
 
     const dom_html2 = parser.parseFromString(text_html2, "text/html");
 
-    const detail_html = dom_html2.querySelectorAll('.text-left .isnew a');
+    const detail_html = dom_html2.querySelectorAll('.text-left.isnew a');
 
     let notice_list = [];
     for (let i = 0; i < detail_html.length; i++) {
@@ -56,22 +54,3 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         })();
     }
 });
-
-async function return_summarize(content) {
-    const response = await fetch("https://openrouter.ai/api/v1/chat/completions",{
-        method:"POST",
-        headers:{
-            "Authorization":`Bearer ${OPENROUTER_API_KEY}`,
-            "Content-Type":"application/json",
-        },
-        body:JSON.stringify({
-            "model": "nvidia/nemotron-3-super-120b-a12b:free", 
-            "messages": [
-            { "role": "user", "content": `'${content}' 이거 100자 이내로 요약해줘` }
-            ]
-        })
-    });
-
-    const result = await response.json();
-    return result
-}
