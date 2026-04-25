@@ -1,5 +1,3 @@
-const OPENROUTER_API_KEY = "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";
-
 async function return_summarize(content) {
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions",{
         method:"POST",
