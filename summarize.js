@@ -1,4 +1,7 @@
 async function return_summarize(content) {
+    const saveKey = await chrome.storage.local.get(["apiKey"]);
+    const OPENROUTER_API_KEY = saveKey.apiKey;
+
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions",{
         method:"POST",
         headers:{

@@ -51,6 +51,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                     console.log("공지:", result);
                 } 
             }
+
+            console.log("요약은 여기까지 입니다.");
         })();
     }
 });

@@ -3,33 +3,14 @@
 <head>
     <meta charset="UTF-8" />
     <title>LMS Crawling</title>
-    <style>
-    body {
-        width: 320px;
-        padding: 12px;
-        font-family: Arial, sans-serif;
-    }
-
-    button {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 12px;
-        cursor: pointer;
-    }
-
-    #result {
-        white-space: pre-wrap;
-        border: 1px solid #ccc;
-        padding: 10px;
-        min-height: 120px;
-        max-height: 300px;
-        overflow-y: auto;
-        font-size: 14px;
-    }
-    </style>
+    <link rel="stylesheet" href="popup.css">
 </head>
 <body>
     <h3>KLMS 텍스트 가져오기</h3>
+    <input type="text" id="apiKeyInput" placeholder="API key 입력" />
+    <button id="saveKey">저장</button>
+
+
     <button id="crawlBtn">현재 페이지 읽기</button>
     
     <div id="result">아직 결과 없음</div>
