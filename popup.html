@@ -2,18 +2,41 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LMS Crawling</title>
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <h3>KLMS 텍스트 가져오기</h3>
-    <input type="text" id="apiKeyInput" placeholder="API key 입력" />
-    <button id="saveKey">저장</button>
+    <div class="container">
+        <div class="header">
+            <h3>
+                <img src="logo.svg" alt="klms" height="25px"/> 공지사항 가져오기
+            </h3>
+        </div>
 
+        <div class="content">
+            <div class="input-group">
+                <label for="apiKeyInput">API Key</label>
+                <div class="input-wrapper">
+                    <input type="password" id="apiKeyInput" placeholder="API key를 입력하세요" />
+                    <button id="saveKey" class="btn-primary btn-small">저장</button>
+                </div>
+            </div>
 
-    <button id="crawlBtn">현재 페이지 읽기</button>
-    
-    <div id="result">아직 결과 없음</div>
+            <button id="crawlBtn" class="btn-primary btn-large">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                공지사항 요약하기
+            </button>
+
+            <div class="result-container">
+                <div class="result-header">결과</div>
+                <div id="result">아직 결과 없음</div>
+            </div>
+        </div>
+    </div>
 
     <script src="popup.js"></script>
 </body>

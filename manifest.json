@@ -1,7 +1,7 @@
 {
     "manifest_version" : 3,
-    "name" : "LMS_CRAWLING",
-    "version" : "1.0",
+    "name" : "KLMS_CRAWLING",
+    "version" : "2.3",
     "description" : "to webcrawling klms",
 
     "permissions": ["activeTab", "scripting", "storage"],
