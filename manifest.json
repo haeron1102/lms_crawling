@@ -3,6 +3,12 @@
     "name" : "KLMS_CRAWLING",
     "version" : "2.3",
     "description" : "to webcrawling klms",
+    "icons" : {
+        "16" : "images/extension_logo_16.png",
+        "32" : "images/extension_logo_32.png",
+        "48" : "images/extension_logo_48.png",
+        "128" : "images/extension_logo_128.png"
+    },
 
     "permissions": ["activeTab", "scripting", "storage"],
 
