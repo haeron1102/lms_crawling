@@ -33,6 +33,29 @@ async function getHtml(url) {
     return notice_list;
 }
 
+async function return_summarize(content) {
+    const saveKey = await chrome.storage.local.get(["apiKey"]);
+    const OPENROUTER_API_KEY = saveKey.apiKey;
+
+    const response = await fetch("https://openrouter.ai/api/v1/chat/completions",{
+        method:"POST",
+        headers:{
+            "Authorization":`Bearer ${OPENROUTER_API_KEY}`,
+            "Content-Type":"application/json",
+        },
+        body:JSON.stringify({
+            "model": "nvidia/nemotron-3-super-120b-a12b:free", 
+            "messages": [
+            { "role": "user", "content": `'${content}' 이 내용을 40% 이내로 한국어로 요약해줘` }
+            ]
+        })
+    });
+
+    const result = await response.json();
+
+    return result["choices"][0]["message"]["content"]
+}
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "crawl") {
         const class_urls = document.querySelectorAll('.fullname');
@@ -47,12 +70,12 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
                 if (content.length != 0) {
                     const result = await return_summarize(content);
-                    console.log("과목명:", className);
-                    console.log("공지:", result);
+
+                    chrome.runtime.sendMessage({ action : "notice", className : "과목명 : " + className, result : "공지 : " + result });
                 } 
             }
 
-            console.log("요약은 여기까지 입니다.");
+            chrome.runtime.sendMessage( {action:"notice", className : "", result : "요약은 여기까지 입니다."})
         })();
     }
 });

@@ -38,7 +38,6 @@ body {
 }
 
 .input-group label {
-    display: block;
     font-size: 13px;
     font-weight: 500;
     color: #4b5563;
@@ -142,12 +141,6 @@ button {
     word-break: break-word;
     color: #374151;
     background: white;
-}
-
-#result:empty::before {
-    content: '아직 결과 없음';
-    color: #9ca3af;
-    font-style: italic;
 }
 
 /* Scrollbar styling */
