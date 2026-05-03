@@ -1,7 +1,7 @@
 {
     "manifest_version" : 3,
     "name" : "KLMS_CRAWLING",
-    "version" : "2.3",
+    "version" : "4.2",
     "description" : "to webcrawling klms",
     "icons" : {
         "16" : "images/extension_logo_16.png",
