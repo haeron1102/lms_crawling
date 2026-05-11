@@ -35,7 +35,7 @@ async function getHtml(url) {
 
 async function return_summarize(content, className) {
     const saveKey = await chrome.storage.local.get(["apiKey"]);
-    const OPENROUTER_API_KEY = saveKey.apiKey;
+    const GROQ_API_KEY = saveKey.apiKey;
 
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
@@ -48,7 +48,7 @@ async function return_summarize(content, className) {
             "messages": [
                 {
                     "role": "system",
-                    "content": "공지사항을 요약해줘 날짜가 있다면 포함해주고 퀴즈나 시험관련 내용인 경우에는 시험 범위도 포함해줘 공지사항은 대학교 강의에 대한 공지이니 과목과 관련된 내용일거야 링크같이 자잘한 거는 포함하지 않아도돼 있는 내용 그대로 요약하면돼 영문설명은 하지 않아도돼"
+                    "content": "공지사항의 핵심 내용을 간결하고 정갈하게 요약해줘. 날짜나 시간이 포함되어 있다면 반드시 함께 적어줘. 퀴즈, 시험, 과제, 평가와 관련된 공지라면 시험 범위나 제출 범위 등 관련 범위도 포함해줘. 단, 원문에 없는 내용은 추가하지 말고 공지에 있는 내용만 바탕으로 정리해줘. 링크, 버튼, 메뉴명 등 자잘한 정보는 생략하고, 영문 설명은 따로 하지 않아도 돼."
                 },
                 {
                     "role": "user",
